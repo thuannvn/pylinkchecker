@@ -245,7 +245,7 @@ class PageCrawler(object):
         if self.worker_config.username and self.worker_config.password:
             base64string = unicode(base64.encodestring(
                     '{0}:{1}'.format(self.worker_config.username,
-                    self.worker_config.password).encode("utf-8")), "utf-8")
+                    self.worker_config.password).encode("utf-8")), "utf-8").strip()
             self.auth_header = ("Authorization", "Basic {0}".format(base64string))
 
     def crawl_page_forever(self):
